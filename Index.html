@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawCare — Jasa Merawat Kucing Profesional</title>
+  <meta name="description" content="Jasa perawatan kucing profesional: grooming, penitipan, vaksinasi, spa. Terpercaya sejak 2018, 5000+ kucing dirawat.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-screen-2xl mx-auto px-6">
+      <div class="grid grid-cols-12 items-center h-16 sm:h-20">
+        <div class="col-span-4 lg:col-span-2 flex items-center gap-2.5">
+          <div class="w-8 h-8 bg-[#c6f91f] rounded-sm flex items-center justify-center">
+            <i data-lucide="cat" class="w-5 h-5 text-black"></i>
+          </div>
+          <span class="font-geist font-semibold text-lg tracking-tight">PawCare</span>
+        </div>
+        <div class="hidden lg:flex col-span-8 justify-center items-center gap-1">
+          <a href="#beranda" class="nav-link px-4 py-2 text-xs font-medium uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/10 rounded-lg">Beranda</a>
+          <a href="#layanan" class="nav-link px-4 py-2 text-xs font-medium uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/10 rounded-lg">Layanan</a>
+          <a href="#katalog" class="nav-link px-4 py-2 text-xs font-medium uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/10 rounded-lg">Katalog</a>
+          <a href="#tentang" class="nav-link px-4 py-2 text-xs font-medium uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/10 rounded-lg">Tentang</a>
+          <a href="#harga" class="nav-link px-4 py-2 text-xs font-medium uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/10 rounded-lg">Harga</a>
+          <a href="#galeri" class="nav-link px-4 py-2 text-xs font-medium uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/10 rounded-lg">Galeri</a>
+          <a href="#testimoni" class="nav-link px-4 py-2 text-xs font-medium uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/10 rounded-lg">Testimoni</a>
+          <a href="#faq" class="nav-link px-4 py-2 text-xs font-medium uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/10 rounded-lg">FAQ</a>
+          <a href="#kontak" class="nav-link px-4 py-2 text-xs font-medium uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/10 rounded-lg">Kontak</a>
+        </div>
+        <div class="col-span-8 lg:col-span-2 flex justify-end items-center gap-3">
+          <a href="#kontak" class="hidden sm:inline-flex items-center gap-2 bg-[#c6f91f] text-black text-xs font-medium uppercase tracking-wide px-5 py-2.5 rounded-sm hover:bg-white transition-colors duration-300">
+            Booking <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </a>
+          <button id="mobile-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+            <i data-lucide="menu" class="w-5 h-5" id="menu-icon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#0B0F13]/95 backdrop-blur-xl border-t border-white/5">
+      <div class="max-w-screen-2xl mx-auto px-6 py-6 flex flex-col gap-1">
+        <a href="#beranda" class="mobile-link px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Beranda</a>
+        <a href="#layanan" class="mobile-link px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Layanan</a>
+        <a href="#katalog" class="mobile-link px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Katalog Kucing</a>
+        <a href="#tentang" class="mobile-link px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Tentang</a>
+        <a href="#harga" class="mobile-link px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Harga</a>
+        <a href="#galeri" class="mobile-link px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Galeri</a>
+        <a href="#testimoni" class="mobile-link px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Testimoni</a>
+        <a href="#faq" class="mobile-link px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">FAQ</a>
+        <a href="#kontak" class="mobile-link px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Kontak</a>
+        <div class="mt-4 pt-4 border-t border-white/10">
+          <a href="#kontak" class="mobile-link flex items-center justify-center gap-2 bg-[#c6f91f] text-black text-sm font-medium px-5 py-3 rounded-sm hover:bg-white transition-colors">
+            Booking Sekarang <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="beranda" class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="hero-bg">
+      <img src="https://picsum.photos/seed/catcare-hero/1920/1080.jpg" alt="Hero">
+    </div>
+    <div class="deco-blob absolute top-1/4 right-1/4 w-96 h-96 bg-[#c6f91f]/5"></div>
+    <div class="deco-blob absolute bottom-1/4 left-1/3 w-64 h-64 bg-[#c6f91f]/3"></div>
+
+    <div class="relative max-w-screen-2xl mx-auto px-6 pt-32 pb-16 w-full">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="reveal-on-scroll" style="animation-delay:0.1s">
+            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-medium tracking-wide uppercase text-[#c6f91f] mb-8">
+              <span class="relative w-2 h-2 rounded-full bg-[#c6f91f] pulse-ring"></span>
+              Terpercaya Sejak 2018
+            </span>
+          </div>
+          <h1 class="reveal-on-scroll hero-title font-geist font-light text-4xl sm:text-5xl lg:text-7xl tracking-tighter leading-[1.1] mb-6" style="animation-delay:0.2s">
+            Perawatan Kucing <span class="text-[#c6f91f]">Terbaik</span> untuk <span class="italic font-normal text-white/60">Sahabat</span> Kecil Anda
+          </h1>
+          <p class="reveal-on-scroll text-lg sm:text-xl font-light text-white/70 leading-relaxed mb-10 max-w-lg" style="animation-delay:0.3s">
+            Tim profesional kami siap memberikan perawatan penuh kasih sayang untuk kucing kesayangan Anda — dari grooming hingga penitipan.
+          </p>
+          <div class="reveal-on-scroll flex flex-wrap gap-4 mb-12" style="animation-delay:0.4s">
+            <a href="#kontak" class="group inline-flex items-center gap-2.5 bg-[#c6f91f] text-black text-xs font-medium uppercase tracking-wide px-7 py-3.5 rounded-sm hover:bg-white transition-colors duration-300">
+              Buat Janji <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"></i>
+            </a>
+            <a href="#katalog" class="group inline-flex items-center gap-2.5 border border-white/20 text-white text-xs font-medium uppercase tracking-wide px-7 py-3.5 rounded-sm hover:bg-white/5 transition-colors duration-300">
+              Lihat Katalog <i data-lucide="chevron-down" class="w-4 h-4 group-hover:translate-y-0.5 transition-transform"></i>
+            </a>
+          </div>
+          <div class="reveal-on-scroll grid grid-cols-3 gap-6 border-t border-white/10 pt-8" style="animation-delay:0.5s">
+            <div>
+              <div class="font-geist font-light text-3xl sm:text-4xl tracking-tighter text-[#c6f91f]">5K+</div>
+              <div class="text-xs text-white/50 uppercase tracking-wide mt-1">Kucing Dirawat</div>
+            </div>
+            <div>
+              <div class="font-geist font-light text-3xl sm:text-4xl tracking-tighter text-[#c6f91f]">4.9</div>
+              <div class="text-xs text-white/50 uppercase tracking-wide mt-1">Rating Pelanggan</div>
+            </div>
+            <div>
+              <div class="font-geist font-light text-3xl sm:text-4xl tracking-tighter text-[#c6f91f]">24/7</div>
+              <div class="text-xs text-white/50 uppercase tracking-wide mt-1">Layanan Darurat</div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-on-scroll hidden lg:block" style="animation-delay:0.4s">
+          <div class="relative float-anim">
+            <div class="img-glow"></div>
+            <div class="relative rounded-2xl overflow-hidden border border-white/10">
+              <img src="https://picsum.photos/seed/cute-cat-portrait/600/700.jpg" alt="Kucing lucu" class="w-full h-[500px] object-cover">
+              <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-[#c6f91f] rounded-full flex items-center justify-center"><i data-lucide="heart" class="w-5 h-5 text-black"></i></div>
+                  <div>
+                    <div class="text-sm font-medium">Diperlakukan dengan Cinta</div>
+                    <div class="text-xs text-white/60">Setiap kucing adalah keluarga</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30">
+      <span class="text-[10px] uppercase tracking-widest">Scroll</span>
+      <div class="w-px h-8 bg-gradient-to-b from-white/30 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- ==================== MARQUEE ==================== -->
+  <div class="border-y border-white/5 py-5 overflow-hidden bg-[#0B0F13]/50">
+    <div class="marquee-track flex items-center gap-12 whitespace-nowrap" style="width:max-content;">
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Grooming Profesional</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Penitipan Aman</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Dokter Hewan</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Cat Hotel Premium</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Layanan Antar Jemput</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Konsultasi Gratis</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> 8+ Ras Tersedia</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Vaccination Service</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Grooming Profesional</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Penitipan Aman</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Dokter Hewan</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Cat Hotel Premium</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Layanan Antar Jemput</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Konsultasi Gratis</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> 8+ Ras Tersedia</span>
+      <span class="flex items-center gap-3 text-white/30 text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-[#c6f91f]"></i> Vaccination Service</span>
+    </div>
+  </div>
+
+  <!-- ==================== LAYANAN ==================== -->
+  <section id="layanan" class="py-24 sm:py-32 relative">
+    <div class="deco-blob absolute top-0 right-0 w-96 h-96 bg-[#c6f91f]/3"></div>
+    <div class="max-w-screen-2xl mx-auto px-6 relative">
+      <div class="reveal-on-scroll max-w-2xl mb-16">
+        <span class="text-[10px] font-semibold uppercase tracking-widest text-[#c6f91f] mb-4 block">Layanan Kami</span>
+        <h2 class="section-title font-geist font-light text-3xl sm:text-4xl lg:text-6xl tracking-tighter leading-[1.1] mb-6">Semua yang kucing Anda <span class="text-[#c6f91f]">butuhkan</span></h2>
+        <p class="text-lg font-light text-white/60 leading-relaxed">Kami menyediakan layanan lengkap untuk menjaga kesehatan, kebersihan, dan kebahagiaan kucing kesayangan Anda.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="reveal-on-scroll service-card" style="animation-delay:0.1s">
+          <div class="w-12 h-12 rounded-lg bg-[#c6f91f]/10 border border-[#c6f91f]/20 flex items-center justify-center mb-6"><i data-lucide="scissors" class="w-6 h-6 text-[#c6f91f]"></i></div>
+          <h3 class="font-geist font-medium text-xl mb-3">Grooming</h3>
+          <p class="text-sm text-white/60 leading-relaxed mb-6">Pemotongan bulu, potong kuku, membersihkan telinga, dan mandi dengan shampo premium khusus kucing.</p>
+          <div class="service-arrow flex items-center gap-2 text-[#c6f91f] text-xs font-medium uppercase tracking-wide">Selengkapnya <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></div>
+        </div>
+        <div class="reveal-on-scroll service-card" style="animation-delay:0.15s">
+          <div class="w-12 h-12 rounded-lg bg-[#c6f91f]/10 border border-[#c6f91f]/20 flex items-center justify-center mb-6"><i data-lucide="hotel" class="w-6 h-6 text-[#c6f91f]"></i></div>
+          <h3 class="font-geist font-medium text-xl mb-3">Penitipan</h3>
+          <p class="text-sm text-white/60 leading-relaxed mb-6">Cat hotel premium dengan kamar ber-AC, CCTV 24 jam, dan pengasuh yang selalu siaga memantau kucing Anda.</p>
+          <div class="service-arrow flex items-center gap-2 text-[#c6f91f] text-xs font-medium uppercase tracking-wide">Selengkapnya <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></div>
+        </div>
+        <div class="reveal-on-scroll service-card" style="animation-delay:0.2s">
+          <div class="w-12 h-12 rounded-lg bg-[#c6f91f]/10 border border-[#c6f91f]/20 flex items-center justify-center mb-6"><i data-lucide="stethoscope" class="w-6 h-6 text-[#c6f91f]"></i></div>
+          <h3 class="font-geist font-medium text-xl mb-3">Cek Kesehatan</h3>
+          <p class="text-sm text-white/60 leading-relaxed mb-6">Pemeriksaan menyeluruh oleh dokter hewan berpengalaman, termasuk cek gigi, kulit, dan berat badan.</p>
+          <div class="service-arrow flex items-center gap-2 text-[#c6f91f] text-xs font-medium uppercase tracking-wide">Selengkapnya <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></div>
+        </div>
+        <div class="reveal-on-scroll service-card" style="animation-delay:0.25s">
+          <div class="w-12 h-12 rounded-lg bg-[#c6f91f]/10 border border-[#c6f91f]/20 flex items-center justify-center mb-6"><i data-lucide="syringe" class="w-6 h-6 text-[#c6f91f]"></i></div>
+          <h3 class="font-geist font-medium text-xl mb-3">Vaksinasi</h3>
+          <p class="text-sm text-white/60 leading-relaxed mb-6">Vaksin lengkap termasuk rabies, FVRCP, dan Feline Leukemia. Dilakukan oleh dokter hewan bersertifikat.</p>
+          <div class="service-arrow flex items-center gap-2 text-[#c6f91f] text-xs font-medium uppercase tracking-wide">Selengkapnya <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></div>
+        </div>
+        <div class="reveal-on-scroll service-card" style="animation-delay:0.3s">
+          <div class="w-12 h-12 rounded-lg bg-[#c6f91f]/10 border border-[#c6f91f]/20 flex items-center justify-center mb-6"><i data-lucide="truck" class="w-6 h-6 text-[#c6f91f]"></i></div>
+          <h3 class="font-geist font-medium text-xl mb-3">Antar Jemput</h3>
+          <p class="text-sm text-white/60 leading-relaxed mb-6">Layanan pick-up dan drop-off door-to-door dengan carrier khusus yang bersih dan aman untuk kucing Anda.</p>
+          <div class="service-arrow flex items-center gap-2 text-[#c6f91f] text-xs font-medium uppercase tracking-wide">Selengkapnya <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></div>
+        </div>
+        <div class="reveal-on-scroll service-card" style="animation-delay:0.35s">
+          <div class="w-12 h-12 rounded-lg bg-[#c6f91f]/10 border border-[#c6f91f]/20 flex items-center justify-center mb-6"><i data-lucide="sparkles" class="w-6 h-6 text-[#c6f91f]"></i></div>
+          <h3 class="font-geist font-medium text-xl mb-3">Spa & Relaksasi</h3>
+          <p class="text-sm text-white/60 leading-relaxed mb-6">Pijat lembut, aromaterapi khusus kucing, dan perawatan bulu dengan conditioner organik premium.</p>
+          <div class="service-arrow flex items-center gap-2 text-[#c6f91f] text-xs font-medium uppercase tracking-wide">Selengkapnya <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== KATALOG KUCING ==================== -->
+  <section id="katalog" class="py-24 sm:py-32 border-y border-white/5 bg-[#0B0F13]/30">
+    <div class="max-w-screen-2xl mx-auto px-6">
+      <div class="reveal-on-scroll text-center max-w-2xl mx-auto mb-6">
+        <span class="text-[10px] font-semibold uppercase tracking-widest text-[#c6f91f] mb-4 block">Katalog Kucing</span>
+        <h2 class="section-title font-geist font-light text-3xl sm:text-4xl lg:text-6xl tracking-tighter leading-[1.1] mb-6">Ras kucing yang <span class="text-[#c6f91f]">kami rawat</span></h2>
+        <p class="text-lg font-light text-white/60 leading-relaxed">Kami berpengalaman merawat berbagai ras kucing. Klik untuk melihat detail perawatan khusus setiap ras.</p>
+      </div>
+      <div class="reveal-on-scroll flex flex-wrap justify-center gap-2 mb-12">
+        <button onclick="filterCatalog('all')" class="catalog-filter active px-4 py-2 text-xs font-medium uppercase tracking-wide rounded-lg bg-[#c6f91f] text-black transition-all duration-300">Semua</button>
+        <button onclick="filterCatalog('longhair')" class="catalog-filter px-4 py-2 text-xs font-medium uppercase tracking-wide rounded-lg border border-white/10 text-white/60 hover:text-white hover:bg-white/5 transition-all duration-300">Bulu Panjang</button>
+        <button onclick="filterCatalog('shorthair')" class="catalog-filter px-4 py-2 text-xs font-medium uppercase tracking-wide rounded-lg border border-white/10 text-white/60 hover:text-white hover:bg-white/5 transition-all duration-300">Bulu Pendek</button>
+        <button onclick="filterCatalog('domestik')" class="catalog-filter px-4 py-2 text-xs font-medium uppercase tracking-wide rounded-lg border border-white/10 text-white/60 hover:text-white hover:bg-white/5 transition-all duration-300">Domestik</button>
+      </div>
+
+      <div id="catalog-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="reveal-on-scroll catalog-card" data-type="longhair" onclick="openCatalogModal(0)" style="animation-delay:0.05s">
+          <div class="relative overflow-hidden"><img src="https://picsum.photos/seed/persian-cat-white/500/400.jpg" alt="Persian"><span class="catalog-tag">Bulu Panjang</span></div>
+          <div class="p-5"><h3 class="font-geist font-medium text-base mb-1">Persian</h3><p class="text-xs text-white/40 mb-3">Bulu panjang & lembut, wajah pipih</p><div class="flex items-center justify-between"><span class="text-[#c6f91f] text-xs font-medium">Lihat Detail →</span><div class="flex gap-0.5"><i data-lucide="star" class="w-3 h-3 fill-[#c6f91f] text-[#c6f91f]"></i><span class="text-xs text-white/50">4.9</span></div></div></div>
+        </div>
+        <div class="reveal-on-scroll catalog-card" data-type="longhair" onclick="openCatalogModal(1)" style="animation-delay:0.1s">
+          <div class="relative overflow-hidden"><img src="https://picsum.photos/seed/ragdoll-cat-blue/500/400.jpg" alt="Ragdoll"><span class="catalog-tag">Bulu Panjang</span></div>
+          <div class="p-5"><h3 class="font-geist font-medium text-base mb-1">Ragdoll</h3><p class="text-xs text-white/40 mb-3">Badan besar, mata biru, santai</p><div class="flex items-center justify-between"><span class="text-[#c6f91f] text-xs font-medium">Lihat Detail →</span><div class="flex gap-0.5"><i data-lucide="star" class="w-3 h-3 fill-[#c6f91f] text-[#c6f91f]"></i><span class="text-xs text-white/50">5.0</span></div></div></div>
+        </div>
+        <div class="reveal-on-scroll catalog-card" data-type="shorthair" onclick="openCatalogModal(2)" style="animation-delay:0.15s">
+          <div class="relative overflow-hidden"><img src="https://picsum.photos/seed/british-shorthair-grey/500/400.jpg" alt="British Shorthair"><span class="catalog-tag">Bulu Pendek</span></div>
+          <div class="p-5"><h3 class="font-geist font-medium text-base mb-1">British Shorthair</h3><p class="text-xs text-white/40 mb-3">Bulu tebal, badan bulat, teduh</p><div class="flex items-center justify-between"><span class="text-[#c6f91f] text-xs font-medium">Lihat Detail →</span><div class="flex gap-0.5"><i data-lucide="star" class="w-3 h-3 fill-[#c6f91f] text-[#c6f91f]"></i><span class="text-xs text-white/50">4.8</span></div></div></div>
+        </div>
+        <div class="reveal-on-scroll catalog-card" data-type="shorthair" onclick="openCatalogModal(3)" style="animation-delay:0.2s">
+          <div class="relative overflow-hidden"><img src="https://picsum.photos/seed/scottish-fold-cat/500/400.jpg" alt="Scottish Fold"><span class="catalog-tag">Bulu Pendek</span></div>
+          <div class="p-5"><h3 class="font-geist font-medium text-base mb-1">Scottish Fold</h3><p class="text-xs text-white/40 mb-3">Telinga lipat, bulat imut</p><div class="flex items-center justify-between"><span class="text-[#c6f91f] text-xs font-medium">Lihat Detail →</span><div class="flex gap-0.5"><i data-lucide="star" class="w-3 h-3 fill-[#c6f91f] text-[#c6f91f]"></i><span class="text-xs text-white/50">4.9</span></div></div></div>
+        </div>
+        <div class="reveal-on-scroll catalog-card" data-type="longhair" onclick="openCatalogModal(4)" style="animation-delay:0.25s">
+          <div class="relative overflow-hidden"><img src="https://picsum.photos/seed/maine-coon-large/500/400.jpg" alt="Maine Coon"><span class="catalog-tag">Bulu Panjang</span></div>
+          <div class="p-5"><h3 class="font-geist font-medium text-base mb-1">Maine Coon</h3><p class="text-xs text-white/40 mb-3">Ras terbesar, ekor lebat</p><div class="flex items-center justify-between"><span class="text-[#c6f91f] text-xs font-medium">Lihat Detail →</span><div class="flex gap-0.5"><i data-lucide="star" class="w-3 h-3 fill-[#c6f91f] text-[#c6f91f]"></i><span class="text-xs text-white/50">4.7</span></div></div></div>
+        </div>
+        <div class="reveal-on-scroll catalog-card" data-type="shorthair" onclick="openCatalogModal(5)" style="animation-delay:0.3s">
+          <div class="relative overflow-hidden"><img src="https://picsum.photos/seed/siamese-cat-seal/500/400.jpg" alt="Siamese"><span class="catalog-tag">Bulu Pendek</span></div>
+          <div class="p-5"><h3 class="font-geist font-medium text-base mb-1">Siamese</h3><p class="text-xs text-white/40 mb-3">Bulu pendek, mata biru, vokal</p><div class="flex items-center justify-between"><span class="text-[#c6f91f] text-xs font-medium">Lihat Detail →</span><div class="flex gap-0.5"><i data-lucide="star" class="w-3 h-3 fill-[#c6f91f] text-[#c6f91f]"></i><span class="text-xs text-white/50">4.8</span></div></div></div>
+        </div>
+        <div class="reveal-on-scroll catalog-card" data-type="shorthair" onclick="openCatalogModal(6)" style="animation-delay:0.35s">
+          <div class="relative overflow-hidden"><img src="https://picsum.photos/seed/bengal-cat-spots/500/400.jpg" alt="Bengal"><span class="catalog-tag">Bulu Pendek</span></div>
+          <div class="p-5"><h3 class="font-geist font-medium text-base mb-1">Bengal</h3><p class="text-xs text-white/40 mb-3">Pola macan tutul, energik</p><div class="flex items-center justify-between"><span class="text-[#c6f91f] text-xs font-medium">Lihat Detail →</span><div class="flex gap-0.5"><i data-lucide="star" class="w-3 h-3 fill-[#c6f91f] text-[#c6f91f]"></i><span class="text-xs text-white/50">4.9</span></div></div></div>
+        </div>
+        <div class="reveal-on-scroll catalog-card" data-type="domestik" onclick="openCatalogModal(7)" style="animation-delay:0.4s">
+          <div class="relative overflow-hidden"><img src="https://picsum.photos/seed/domestic-cat-cute/500/400.jpg" alt="Domestik"><span class="catalog-tag">Domestik</span></div>
+          <div class="p-5"><h3 class="font-geist font-medium text-base mb-1">Kucing Domestik</h3><p class="text-xs text-white/40 mb-3">Kucing rumahan yang setia</p><div class="flex items-center justify-between"><span class="text-[#c6f91f] text-xs font-medium">Lihat Detail →</span><div class="flex gap-0.5"><i data-lucide="star" class="w-3 h-3 fill-[#c6f91f] text-[#c6f91f]"></i><span class="text-xs text-white/50">5.0</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog Modal -->
+  <div id="catalog-modal">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="relative">
+        <img id="modal-img" src="" alt="" class="w-full h-64 sm:h-80 object-cover rounded-t-xl">
+        <button onclick="closeCatalogModal()" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black/60 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors"><i data-lucide="x" class="w-5 h-5"></i></button>
+        <span id="modal-tag" class="catalog-tag" style="top:1rem;right:auto;left:1rem;"></span>
+      </div>
+      <div class="p-6 sm:p-8">
+        <h3 id="modal-title" class="font-geist font-medium text-2xl mb-2"></h3>
+        <p id="modal-desc" class="text-sm text-white/60 leading-relaxed mb-6"></p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+          <div class="bg-white/5 rounded-lg p-3 text-center"><div id="modal-weight" class="text-sm font-medium text-[#c6f91f]"></div><div class="text-[10px] text-white/40 uppercase tracking-wide mt-0.5">Berat</div></div>
+          <div class="bg-white/5 rounded-lg p-3 text-center"><div id="modal-lifespan" class="text-sm font-medium text-[#c6f91f]"></div><div class="text-[10px] text-white/40 uppercase tracking-wide mt-0.5">Umur</div></div>
+          <div class="bg-white/5 rounded-lg p-3 text-center"><div id="modal-coat" class="text-sm font-medium text-[#c6f91f]"></div><div class="text-[10px] text-white/40 uppercase tracking-wide mt-0.5">Bulu</div></div>
+          <div class="bg-white/5 rounded-lg p-3 text-center"><div id="modal-price" class="text-sm font-medium text-[#c6f91f]"></div><div class="text-[10px] text-white/40 uppercase tracking-wide mt-0.5">Grooming</div></div>
+        </div>
+        <div class="bg-white/[0.03] border border-white/5 rounded-lg p-4 mb-6">
+          <div class="text-xs font-semibold uppercase tracking-widest text-[#c6f91f] mb-2">Tips Perawatan</div>
+          <p id="modal-tips-text" class="text-sm text-white/50 leading-relaxed"></p>
+        </div>
+        <a href="#kontak" onclick="closeCatalogModal()" class="inline-flex items-center gap-2 bg-[#c6f91f] text-black text-xs font-medium uppercase tracking-wide px-6 py-3 rounded-sm hover:bg-white transition-colors duration-300">Booking Perawatan <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TENTANG ==================== -->
+  <section id="tentang" class="py-24 sm:py-32">
+    <div class="max-w-screen-2xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal-on-scroll relative">
+          <div class="img-glow"></div>
+          <div class="relative grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+              <img src="https://picsum.photos/seed/cat-grooming-1/400/500.jpg" alt="Grooming" class="w-full h-64 object-cover rounded-xl border border-white/10">
+              <img src="https://picsum.photos/seed/cat-sleeping-cozy/400/300.jpg" alt="Kucing tidur" class="w-full h-40 object-cover rounded-xl border border-white/10">
+            </div>
+            <div class="space-y-4 pt-8">
+              <img src="https://picsum.photos/seed/vet-checkup-cat/400/300.jpg" alt="Cek kesehatan" class="w-full h-40 object-cover rounded-xl border border-white/10">
+              <img src="https://picsum.photos/seed/happy-cat-play/400/500.jpg" alt="Kucing bermain" class="w-full h-64 object-cover rounded-xl border border-white/10">
+            </div>
+          </div>
+          <div class="about-badge">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 bg-[#c6f91f] rounded-full flex items-center justify-center"><i data-lucide="award" class="w-6 h-6 text-black"></i></div>
+              <div><div class="font-geist font-semibold text-lg">6 Tahun</div><div class="text-xs text-white/50">Pengalaman</div></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="reveal-on-scroll">
+            <span class="text-[10px] font-semibold uppercase tracking-widest text-[#c6f91f] mb-4 block">Tentang Kami</span>
+            <h2 class="section-title font-geist font-light text-3xl sm:text-4xl lg:text-5xl tracking-tighter leading-[1.1] mb-6">Kami <span class="text-[#c6f91f]">mencintai</span> kucing sama seperti Anda</h2>
+          </div>
+          <div class="reveal-on-scroll" style="animation-delay:0.1s">
+            <p class="text-lg font-light text-white/60 leading-relaxed mb-6">PawCare didirikan pada tahun 2018 oleh sekelompok pecinta kucing yang ingin memberikan layanan perawatan kucing terbaik di Indonesia.</p>
+            <p class="text-base font-light text-white/50 leading-relaxed mb-8">Setiap anggota tim kami telah melalui pelatihan intensif dan memiliki sertifikasi dalam perawatan kucing. Kami memahami bahwa kucing bukan sekadar hewan peliharaan — mereka adalah keluarga.</p>
+          </div>
+          <div class="reveal-on-scroll space-y-4 mb-10" style="animation-delay:0.2s">
+            <div class="flex items-start gap-4"><div class="w-8 h-8 rounded-lg bg-[#c6f91f]/10 flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="shield-check" class="w-4 h-4 text-[#c6f91f]"></i></div><div><div class="text-sm font-medium mb-1">Tersertifikasi & Berlisensi</div><div class="text-sm text-white/50">Semua tim kami memiliki sertifikat dari asosiasi dokter hewan Indonesia.</div></div></div>
+            <div class="flex items-start gap-4"><div class="w-8 h-8 rounded-lg bg-[#c6f91f]/10 flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="video" class="w-4 h-4 text-[#c6f91f]"></i></div><div><div class="text-sm font-medium mb-1">CCTV 24 Jam</div><div class="text-sm text-white/50">Pantau kucing Anda kapan saja melalui live streaming CCTV kami.</div></div></div>
+            <div class="flex items-start gap-4"><div class="w-8 h-8 rounded-lg bg-[#c6f91f]/10 flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="leaf" class="w-4 h-4 text-[#c6f91f]"></i></div><div><div class="text-sm font-medium mb-1">Produk Organik</div><div class="text-sm text-white/50">Kami hanya menggunakan produk perawatan yang aman dan organik.</div></div></div>
+          </div>
+          <div class="reveal-on-scroll" style="animation-delay:0.3s">
+            <a href="#kontak" class="group inline-flex items-center gap-2.5 bg-white text-black text-xs font-medium uppercase tracking-wide px-7 py-3.5 rounded-sm hover:bg-[#c6f91f] transition-colors duration-300">Hubungi Kami <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HARGA ==================== -->
+  <section id="harga" class="py-24 sm:py-32 border-y border-white/5 relative">
+    <div class="deco-blob absolute bottom-0 left-0 w-96 h-96 bg-[#c6f91f]/3"></div>
+    <div class="max-w-screen-2xl mx-auto px-6 relative">
+      <div class="reveal-on-scroll text-center max-w-2xl mx-auto mb-16">
+        <span class="text-[10px] font-semibold uppercase tracking-widest text-[#c6f91f] mb-4 block">Paket Harga</span>
+        <h2 class="section-title font-geist font-light text-3xl sm:text-4xl lg:text-6xl tracking-tighter leading-[1.1] mb-6">Pilih paket <span class="text-[#c6f91f]">terbaik</span></h2>
+        <p class="text-lg font-light text-white/60 leading-relaxed">Harga transparan tanpa biaya tersembunyi. Semua paket sudah termasuk konsultasi gratis.</p>
+      </div>
+      <div class="reveal-on-scroll flex justify-center mb-12">
+        <div class="inline-flex bg-white/5 rounded-lg p-1 border border-white/10">
+          <button id="toggle-monthly" class="pricing-toggle px-6 py-2.5 text-xs font-medium uppercase tracking-wide rounded-md bg-[#c6f91f] text-black transition-all duration-300" onclick="togglePricing('monthly')">Bulanan</button>
+          <button id="toggle-yearly" class="pricing-toggle px-6 py-2.5 text-xs font-medium uppercase tracking-wide rounded-md text-white/60 hover:text-white transition-all duration-300" onclick="togglePricing('yearly')">Tahunan <span class="text-[#c6f91f]">-20%</span></button>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="reveal-on-scroll pricing-card" style="animation-delay:0.1s">
+          <div class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Basic</div>
+          <div class="mb-6"><span class="font-geist font-light text-5xl tracking-tighter price-monthly">250K</span><span class="font-geist font-light text-5xl tracking-tighter price-yearly hidden">200K</span><span class="text-white/40 text-sm">/bulan</span></div>
+          <p class="text-sm text-white/50 mb-8">Perawatan dasar rutin untuk kucing Anda.</p>
+          <ul class="space-y-3 mb-10">
+            <li class="flex items-center gap-3 text-sm text-white/70"><i data-lucide="check" class="w-4 h-4 text-[#c6f91f] flex-shrink-0"></i> Grooming 1x/bulan</li>
+            <li class="flex items-center gap-3 text-sm text-white/70"><i data-lucide="check" class="w-4 h-4 text-[#c6f91f] flex-shrink-0"></i> Cek kesehatan dasar</li>
+            <li class="flex items-center gap-3 text-sm text-white/70"><i data-lucide="check" class="w-4 h-4 text-[#c6f91f] flex-shrink-0"></i> Konsultasi via chat</li>
+            <li class="flex items-center gap-3 text-sm text-white/30"><i data-lucide="x" class="w-4 h-4 text-white/20 flex-shrink-0"></i> Penitipan</li>
+            <li class="flex items-center gap-3 text-sm text-white/30"><i data-lucide="x" class="w-4 h-4 text-white/20 flex-shrink-0"></i> Antar jemput</li>
+          </ul>
+          <button onclick="selectPlan('Basic')" class="w-full py-3.5 border border-white/20 text-white text-xs font-medium uppercase tracking-wide rounded-sm hover:bg-white/5 transition-colors duration-300">Pilih Basic</button>
+        </div>
+        <div class="reveal-on-scroll pricing-card featured" style="animation-delay:0.15s">
+          <div class="pricing-badge">Populer</div>
+          <div class="text-xs font-semibold uppercase tracking-widest text-[#c6f91f] mb-4">Premium</div>
+          <div class="mb-6"><span class="font-geist font-light text-5xl tracking-tighter price-monthly">500K</span><span class="font-geist font-light text-5xl tracking-tighter price-yearly hidden">400K</span><span class="text-white/40 text-sm">/bulan</span></div>
+          <p class="text-sm text-white/50 mb-8">Lengkap untuk kucing yang mendapat perhatian ekstra.</p>
+          <ul class="space-y-3 mb-10">
+            <li class="flex items-center gap-3 text-sm text-white/70"><i data-lucide="check" class="w-4 h-4 text-[#c6f91f] flex-shrink-0"></i> Grooming 2x/bulan</li>
+            <li class="flex items-center gap-3 text-sm text-white/70"><i data-lucide="check" class="w-4 h-4 text-[#c6f91f] flex-shrink-0"></i> Cek kesehatan lengkap</li>
+            <li class="flex items-center gap-3 text-sm text-white/70"><i data-lucide="check" class="w-4 h-4 text-[#c6f91f] flex-shrink-0"></i> Konsultasi video call</li>
+            <li class="flex items-center gap-3 text-sm text-white/70"><i data-lucide="check" class="w-4 h-4 text-[#c6f91f] flex-shrink-0"></i> Penitipan 3 hari</li>
+            <li class="flex items-center gap-3 text-sm text-white/30"><i data-lucide="x" class="w-4 h-4 text-white/20 flex-shrink-0"></i> Antar jemput</li>
+          </ul>
+          <button onclick="selectPlan('Premium')" class="w-full py-3.5 bg-[#c6f91f] text-black text-xs font-medium uppercase tracking-wide rounded-sm hover:bg-white transition-colors duration-300">Pilih Premium</button>
+        </div>
+        <div class="reveal-on-scroll pricing-card" style="animation-delay:0.2s">
+          <div class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">VIP</div>
+          <div class="mb-6"><span class="font-geist font-light text-5xl tracking-tighter price-monthly">1jt</span><span class="font-geist font-light text-5xl tracking-tighter price-yearly hidden">800K</span><span class="text-white/40 text-sm">/bulan</span></div>
+          <p class="text-sm text-white/50 mb-8">Premium tanpa batas untuk kucing kesayangan.</p>
+          <ul class="space-y-3 mb-10">
+            <li class="flex items-center gap-3 text-sm text-white/70"><i data-lucide="check" class="w-4 h-4 text-[#c6f91f] flex-shrink-0"></i> Grooming unlimited</li>
+            <li class="flex items-center gap-3 text-sm text-white/70"><i data-lucide="check" class="w-4 h-4 text-[#c6f91f] flex-shrink-0"></i> Cek kesehatan + vaksin</li>
+            <li class="flex items-center gap-3 text-sm text-white/70"><i data-lucide="check" class="w-4 h-4 text-[#c6f91f] flex-shrink-0"></i> Konsultasi 24/7</li>
+            <li class="flex items-center gap-3 text-sm text-white/70"><i data-lucide="check" class="w-4 h-4 text-[#c6f91f] flex-shrink-0"></i> Penitipan 7 hari</li>
+            <li class="flex items-center gap-3 text-sm text-white/70"><i data-lucide="check" class="w-4 h-4 text-[#c6f91f] flex-shrink-0"></i> Antar jemput free</li>
+          </ul>
+          <button onclick="selectPlan('VIP')" class="w-full py-3.5 border border-white/20 text-white text-xs font-medium uppercase tracking-wide rounded-sm hover:bg-white/5 transition-colors duration-300">Pilih VIP</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GALERI ==================== -->
+  <section id="galeri" class="py-24 sm:py-32 bg-[#0B0F13]/30">
+    <div class="max-w-screen-2xl mx-auto px-6">
+      <div class="reveal-on-scroll flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12">
+        <div>
+          <span class="text-[10px] font-semibold uppercase tracking-widest text-[#c6f91f] mb-4 block">Galeri</span>
+          <h2 class="section-title font-geist font-light text-3xl sm:text-4xl lg:text-5xl tracking-tighter leading-[1.1]">Momen <span class="text-[#c6f91f]">bahagia</span> mereka</h2>
+        </div>
+        <div class="flex gap-2 mt-6 sm:mt-0">
+          <button onclick="filterGallery('all')" class="gallery-filter active px-4 py-2 text-xs font-medium uppercase tracking-wide rounded-lg bg-[#c6f91f] text-black transition-all duration-300">Semua</button>
+          <button onclick="filterGallery('grooming')" class="gallery-filter px-4 py-2 text-xs font-medium uppercase tracking-wide rounded-lg border border-white/10 text-white/60 hover:text-white hover:bg-white/5 transition-all duration-300">Grooming</button>
+          <button onclick="filterGallery('hotel')" class="gallery-filter px-4 py-2 text-xs font-medium uppercase tracking-wide rounded-lg border border-white/10 text-white/60 hover:text-white hover:bg-white/5 transition-all duration-300">Hotel</button>
+          <button onclick="filterGallery('play')" class="gallery-filter px-4 py-2 text-xs font-medium uppercase tracking-wide rounded-lg border border-white/10 text-white/60 hover:text-white hover:bg-white/5 transition-all duration-300">Bermain</button>
+        </div>
+      </div>
+      <div id="gallery-grid" class="gallery-grid grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="gallery-item aspect-square" data-category="grooming" onclick="openLightbox(this)"><img src="https://picsum.photos/seed/cat-bath-soap/500/500.jpg" alt="Grooming Lux"><div class="gallery-overlay"><span class="gallery-label">Grooming Lux</span></div></div>
+        <div class="gallery-item aspect-square" data-category="hotel" onclick="openLightbox(this)"><img src="https://picsum.photos/seed/cat-hotel-room/500/500.jpg" alt="Suite Premium"><div class="gallery-overlay"><span class="gallery-label">Suite Premium</span></div></div>
+        <div class="gallery-item tall aspect-[3/4] md:row-span-2" data-category="play" onclick="openLightbox(this)"><img src="https://picsum.photos/seed/cat-playing-ball/500/700.jpg" alt="Playtime Fun"><div class="gallery-overlay"><span class="gallery-label">Playtime Fun</span></div></div>
+        <div class="gallery-item aspect-square" data-category="grooming" onclick="openLightbox(this)"><img src="https://picsum.photos/seed/cat-nail-trim/500/500.jpg" alt="Nail Care"><div class="gallery-overlay"><span class="gallery-label">Nail Care</span></div></div>
+        <div class="gallery-item aspect-square" data-category="hotel" onclick="openLightbox(this)"><img src="https://picsum.photos/seed/cat-sleeping-bed/500/500.jpg" alt="Cozy Sleep"><div class="gallery-overlay"><span class="gallery-label">Cozy Sleep</span></div></div>
+        <div class="gallery-item aspect-square" data-category="play" onclick="openLightbox(this)"><img src="https://picsum.photos/seed/cat-toy-mouse/500/500.jpg" alt="Toy Time"><div class="gallery-overlay"><span class="gallery-label">Toy Time</span></div></div>
+        <div class="gallery-item aspect-square" data-category="grooming" onclick="openLightbox(this)"><img src="https://picsum.photos/seed/cat-brush-fur/500/500.jpg" alt="Fur Brushing"><div class="gallery-overlay"><span class="gallery-label">Fur Brushing</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <button class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-white/10 transition-colors z-10" onclick="closeLightbox()"><i data-lucide="x" class="w-5 h-5"></i></button>
+    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-xl">
+  </div>
+
+  <!-- ==================== TESTIMONI ==================== -->
+  <section id="testimoni" class="py-24 sm:py-32 relative">
+    <div class="deco-blob absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#c6f91f]/3"></div>
+    <div class="max-w-screen-2xl mx-auto px-6 relative">
+      <div class="reveal-on-scroll text-center max-w-2xl mx-auto mb-16">
+        <span class="text-[10px] font-semibold uppercase tracking-widest text-[#c6f91f] mb-4 block">Testimoni</span>
+        <h2 class="section-title font-geist font-light text-3xl sm:text-4xl lg:text-6xl tracking-tighter leading-[1.1] mb-6">Kata <span class="text-[#c6f91f]">mereka</span></h2>
+        <p class="text-lg font-light text-white/60 leading-relaxed">Lebih dari 5000 pemilik kucing telah mempercayakan hewan peliharaan mereka kepada kami.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="reveal-on-scroll testimonial-card" style="animation-delay:0.1s">
+          <div class="flex gap-1 mb-6"><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i></div>
+          <p class="text-sm text-white/70 leading-relaxed mb-8">"Kucing saya yang tadinya takut ke groomer, sekarang jadi senang karena tim PawCare sangat sabar dan lembut. Bulu Luna jadi super halus!"</p>
+          <div class="flex items-center gap-3"><img src="https://picsum.photos/seed/person-sarah/80/80.jpg" alt="Sarah" class="w-10 h-10 rounded-full object-cover"><div><div class="text-sm font-medium">Sarah Azzahra</div><div class="text-xs text-white/40">Pemilik Persian — Luna</div></div></div>
+        </div>
+        <div class="reveal-on-scroll testimonial-card" style="animation-delay:0.15s">
+          <div class="flex gap-1 mb-6"><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i></div>
+          <p class="text-sm text-white/70 leading-relaxed mb-8">"Saat liburan ke luar kota selama seminggu, saya titipkan 3 kucing saya di sini. Bisa monitoring lewat CCTV, jadi tenang. Pelayanan top!"</p>
+          <div class="flex items-center gap-3"><img src="https://picsum.photos/seed/person-budi/80/80.jpg" alt="Budi" class="w-10 h-10 rounded-full object-cover"><div><div class="text-sm font-medium">Budi Santoso</div><div class="text-xs text-white/40">Pemilik 3 Kucing Domestik</div></div></div>
+        </div>
+        <div class="reveal-on-scroll testimonial-card" style="animation-delay:0.2s">
+          <div class="flex gap-1 mb-6"><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i><i data-lucide="star" class="w-4 h-4 fill-[#c6f91f] text-[#c6f91f]"></i></div>
+          <p class="text-sm text-white/70 leading-relaxed mb-8">"Vaksinasi di PawCare sangat profesional, dokternya jelaskan semuanya detail. Kucing saya tidak stres sama sekali. Highly recommended!"</p>
+          <div class="flex items-center gap-3"><img src="https://picsum.photos/seed/person-maya/80/80.jpg" alt="Maya" class="w-10 h-10 rounded-full object-cover"><div><div class="text-sm font-medium">Maya Putri</div><div class="text-xs text-white/40">Pemilik Ragdoll — Mochi</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CARA KERJA ==================== -->
+  <section class="py-24 sm:py-32 border-y border-white/5">
+    <div class="max-w-screen-2xl mx-auto px-6">
+      <div class="reveal-on-scroll text-center max-w-2xl mx-auto mb-16">
+        <span class="text-[10px] font-semibold uppercase tracking-widest text-[#c6f91f] mb-4 block">Cara Kerja</span>
+        <h2 class="section-title font-geist font-light text-3xl sm:text-4xl lg:text-5xl tracking-tighter leading-[1.1]">Semudah <span class="text-[#c6f91f]">1-2-3</span></h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-4">
+        <div class="reveal-on-scroll process-step" style="animation-delay:0.1s"><div class="step-number">01</div><div class="w-12 h-12 mx-auto rounded-lg bg-[#c6f91f]/10 border border-[#c6f91f]/20 flex items-center justify-center mb-4"><i data-lucide="calendar-check" class="w-6 h-6 text-[#c6f91f]"></i></div><h3 class="font-medium text-sm mb-2">Booking Online</h3><p class="text-xs text-white/50 leading-relaxed">Pilih layanan dan jadwal melalui form atau WhatsApp kami.</p></div>
+        <div class="reveal-on-scroll process-step" style="animation-delay:0.2s"><div class="step-number">02</div><div class="w-12 h-12 mx-auto rounded-lg bg-[#c6f91f]/10 border border-[#c6f91f]/20 flex items-center justify-center mb-4"><i data-lucide="truck" class="w-6 h-6 text-[#c6f91f]"></i></div><h3 class="font-medium text-sm mb-2">Antar / Datang</h3><p class="text-xs text-white/50 leading-relaxed">Kami jemput kucing Anda atau Anda bisa datang langsung.</p></div>
+        <div class="reveal-on-scroll process-step" style="animation-delay:0.3s"><div class="step-number">03</div><div class="w-12 h-12 mx-auto rounded-lg bg-[#c6f91f]/10 border border-[#c6f91f]/20 flex items-center justify-center mb-4"><i data-lucide="heart-handshake" class="w-6 h-6 text-[#c6f91f]"></i></div><h3 class="font-medium text-sm mb-2">Perawatan</h3><p class="text-xs text-white/50 leading-relaxed">Tim profesional merawat kucing Anda dengan penuh kasih sayang.</p></div>
+        <div class="reveal-on-scroll process-step" style="animation-delay:0.4s"><div class="step-number">04</div><div class="w-12 h-12 mx-auto rounded-lg bg-[#c6f91f]/10 border border-[#c6f91f]/20 flex items-center justify-center mb-4"><i data-lucide="smile" class="w-6 h-6 text-[#c6f91f]"></i></div><h3 class="font-medium text-sm mb-2">Serah Terima</h3><p class="text-xs text-white/50 leading-relaxed">Kucing Anda dikembalikan sehat, bersih, dan bahagia.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section id="faq" class="py-24 sm:py-32">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="reveal-on-scroll text-center mb-16">
+        <span class="text-[10px] font-semibold uppercase tracking-widest text-[#c6f91f] mb-4 block">FAQ</span>
+        <h2 class="section-title font-geist font-light text-3xl sm:text-4xl lg:text-5xl tracking-tighter leading-[1.1]">Pertanyaan <span class="text-[#c6f91f]">umum</span></h2>
+      </div>
+      <div class="reveal-on-scroll space-y-2" id="faq-container">
+        <div class="faq-item"><button class="faq-toggle" onclick="toggleFaq(this)"><span class="text-sm font-medium pr-4">Apakah kucing saya aman dititipkan di PawCare?</span><i data-lucide="plus" class="w-5 h-5 text-white/40 faq-icon"></i></button><div class="faq-content"><div class="px-6 pb-6 text-sm text-white/60 leading-relaxed">Tentu saja! Kami memiliki CCTV 24 jam yang bisa Anda akses kapan saja. Setiap kamar dilengkapi sensor suhu, ventilasi baik, dan pengasuh yang standby. Kucing Anda akan mendapat makanan sesuai jadwal dan mainan interaktif.</div></div></div>
+        <div class="faq-item"><button class="faq-toggle" onclick="toggleFaq(this)"><span class="text-sm font-medium pr-4">Berapa lama proses grooming berlangsung?</span><i data-lucide="plus" class="w-5 h-5 text-white/40 faq-icon"></i></button><div class="faq-content"><div class="px-6 pb-6 text-sm text-white/60 leading-relaxed">Proses grooming standar memakan waktu 1-2 jam, tergantung kondisi bulu dan ras. Untuk grooming lengkap (termasuk spa), bisa 2-3 jam. Kami tidak pernah terburu-buru — kenyamanan kucing adalah prioritas.</div></div></div>
+        <div class="faq-item"><button class="faq-toggle" onclick="toggleFaq(this)"><span class="text-sm font-medium pr-4">Apakah kucing agresif bisa digrooming?</span><i data-lucide="plus" class="w-5 h-5 text-white/40 faq-icon"></i></button><div class="faq-content"><div class="px-6 pb-6 text-sm text-white/60 leading-relaxed">Ya, tim kami terlatih menangani berbagai temperamen. Kami menggunakan gentle handling dan jika perlu, muzzle khusus kucing yang aman. Untuk kasus ekstrem, kami bekerja sama dengan dokter hewan untuk sedasi ringan.</div></div></div>
+        <div class="faq-item"><button class="faq-toggle" onclick="toggleFaq(this)"><span class="text-sm font-medium pr-4">Apa yang harus dibawa saat penitipan?</span><i data-lucide="plus" class="w-5 h-5 text-white/40 faq-icon"></i></button><div class="faq-content"><div class="px-6 pb-6 text-sm text-white/60 leading-relaxed">Cukup bawa kucing dalam carrier. Kami sudah menyediakan makanan premium, litter box, tempat tidur, dan mainan. Jika kucing punya makanan khusus atau obat, silakan bawa dan beri tahu petugas kami.</div></div></div>
+        <div class="faq-item"><button class="faq-toggle" onclick="toggleFaq(this)"><span class="text-sm font-medium pr-4">Bagaimana cara pembayaran?</span><i data-lucide="plus" class="w-5 h-5 text-white/40 faq-icon"></i></button><div class="faq-content"><div class="px-6 pb-6 text-sm text-white/60 leading-relaxed">Kami menerima tunai, transfer bank (BCA, Mandiri, BNI, BRI), e-wallet (GoPay, OVO, DANA, ShopeePay), dan kartu kredit/debit. Paket tahunan tersedia cicilan 0% hingga 6 bulan.</div></div></div>
+        <div class="faq-item"><button class="faq-toggle" onclick="toggleFaq(this)"><span class="text-sm font-medium pr-4">Apakah ada garansi jika kucing saya sakit setelah dititip?</span><i data-lucide="plus" class="w-5 h-5 text-white/40 faq-icon"></i></button><div class="faq-content"><div class="px-6 pb-6 text-sm text-white/60 leading-relaxed">Kami memberikan garansi kesehatan 7 hari setelah penitipan. Jika kucing menunjukkan gejala sakit terkait penitipan, kami menanggung seluruh biaya pengobatan. Setiap kucing juga sudah kami cek kesehatan awal sebagai dokumentasi.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== KONTAK ==================== -->
+  <section id="kontak" class="py-24 sm:py-32 border-t border-white/5 relative">
+    <div class="deco-blob absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#c6f91f]/3"></div>
+    <div class="max-w-screen-2xl mx-auto px-6 relative">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <div>
+          <div class="reveal-on-scroll">
+            <span class="text-[10px] font-semibold uppercase tracking-widest text-[#c6f91f] mb-4 block">Hubungi Kami</span>
+            <h2 class="section-title font-geist font-light text-3xl sm:text-4xl lg:text-5xl tracking-tighter leading-[1.1] mb-6">Jadwalkan <span class="text-[#c6f91f]">janji</span> Anda</h2>
+            <p class="text-lg font-light text-white/60 leading-relaxed mb-10">Isi form di samping atau hubungi kami langsung. Tim kami siap merespon dalam 15 menit.</p>
+          </div>
+          <div class="reveal-on-scroll space-y-6" style="animation-delay:0.1s">
+            <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0"><i data-lucide="map-pin" class="w-5 h-5 text-[#c6f91f]"></i></div><div><div class="text-sm font-medium mb-1">Alamat</div><div class="text-sm text-white/50">Jl. Kucing Bahagia No. 88, Jakarta Selatan, 12345</div></div></div>
+            <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0"><i data-lucide="phone" class="w-5 h-5 text-[#c6f91f]"></i></div><div><div class="text-sm font-medium mb-1">Telepon / WhatsApp</div><div class="text-sm text-white/50">+62 812-3456-7890</div></div></div>
+            <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0"><i data-lucide="mail" class="w-5 h-5 text-[#c6f91f]"></i></div><div><div class="text-sm font-medium mb-1">Email</div><div class="text-sm text-white/50">hello@pawcare.id</div></div></div>
+            <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0"><i data-lucide="clock" class="w-5 h-5 text-[#c6f91f]"></i></div><div><div class="text-sm font-medium mb-1">Jam Operasional</div><div class="text-sm text-white/50">Senin - Sabtu: 08.00 - 21.00<br>Minggu: 09.00 - 18.00<br>Emergency: 24/7</div></div></div>
+          </div>
+          <div class="reveal-on-scroll mt-10 flex gap-3" style="animation-delay:0.2s">
+            <a href="#" class="social-link"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="#" class="social-link"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+            <a href="#" class="social-link"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+            <a href="#" class="social-link"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+          </div>
+        </div>
+        <div class="reveal-on-scroll" style="animation-delay:0.15s">
+          <form id="booking-form" class="p-8 sm:p-10 rounded-xl border border-white/10 bg-white/[0.02]" onsubmit="handleBooking(event)">
+            <h3 class="font-geist font-medium text-xl mb-6">Form Booking</h3>
+            <div class="grid sm:grid-cols-2 gap-4 mb-4">
+              <div><label class="block text-xs text-white/40 uppercase tracking-wide mb-2">Nama Anda *</label><input type="text" name="name" required placeholder="Nama lengkap" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20"></div>
+              <div><label class="block text-xs text-white/40 uppercase tracking-wide mb-2">No. WhatsApp *</label><input type="tel" name="phone" required placeholder="08xx-xxxx-xxxx" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20"></div>
+            </div>
+            <div class="mb-4"><label class="block text-xs text-white/40 uppercase tracking-wide mb-2">Email</label><input type="email" name="email" placeholder="email@contoh.com" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20"></div>
+            <div class="grid sm:grid-cols-2 gap-4 mb-4">
+              <div><label class="block text-xs text-white/40 uppercase tracking-wide mb-2">Nama Kucing *</label><input type="text" name="catname" required placeholder="Nama kucing" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20"></div>
+              <div><label class="block text-xs text-white/40 uppercase tracking-wide mb-2">Ras Kucing *</label><select name="breed" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white appearance-none cursor-pointer"><option value="" class="bg-[#0E1216]">Pilih ras</option><option value="persian" class="bg-[#0E1216]">Persian</option><option value="ragdoll" class="bg-[#0E1216]">Ragdoll</option><option value="british-shorthair" class="bg-[#0E1216]">British Shorthair</option><option value="scottish-fold" class="bg-[#0E1216]">Scottish Fold</option><option value="maine-coon" class="bg-[#0E1216]">Maine Coon</option><option value="siamese" class="bg-[#0E1216]">Siamese</option><option value="bengal" class="bg-[#0E1216]">Bengal</option><option value="domestik" class="bg-[#0E1216]">Domestik</option><option value="lainnya" class="bg-[#0E1216]">Lainnya</option></select></div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4 mb-4">
+              <div><label class="block text-xs text-white/40 uppercase tracking-wide mb-2">Layanan *</label><select name="service" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white appearance-none cursor-pointer"><option value="" class="bg-[#0E1216]">Pilih layanan</option><option value="grooming" class="bg-[#0E1216]">Grooming</option><option value="penitipan" class="bg-[#0E1216]">Penitipan</option><option value="cek-kesehatan" class="bg-[#0E1216]">Cek Kesehatan</option><option value="vaksinasi" class="bg-[#0E1216]">Vaksinasi</option><option value="spa" class="bg-[#0E1216]">Spa & Relaksasi</option><option value="antar-jemput" class="bg-[#0E1216]">Antar Jemput</option></select></div>
+              <div><label class="block text-xs text-white/40 uppercase tracking-wide mb-2">Tanggal *</label><input type="date" name="date" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white cursor-pointer"></div>
+            </div>
+            <div class="mb-4"><label class="block text-xs text-white/40 uppercase tracking-wide mb-2">Waktu</label><select name="time" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white appearance-none cursor-pointer"><option value="" class="bg-[#0E1216]">Pilih waktu</option><option value="08:00" class="bg-[#0E1216]">08:00 - 09:00</option><option value="09:00" class="bg-[#0E1216]">09:00 - 10:00</option><option value="10:00" class="bg-[#0E1216]">10:00 - 11:00</option><option value="11:00" class="bg-[#0E1216]">11:00 - 12:00</option><option value="13:00" class="bg-[#0E1216]">13:00 - 14:00</option><option value="14:00" class="bg-[#0E1216]">14:00 - 15:00</option><option value="15:00" class="bg-[#0E1216]">15:00 - 16:00</option><option value="16:00" class="bg-[#0E1216]">16:00 - 17:00</option><option value="17:00" class="bg-[#0E1216]">17:00 - 18:00</option><option value="18:00" class="bg-[#0E1216]">18:00 - 19:00</option><option value="19:00" class="bg-[#0E1216]">19:00 - 20:00</option><option value="20:00" class="bg-[#0E1216]">20:00 - 21:00</option></select></div>
+            <div class="mb-6"><label class="block text-xs text-white/40 uppercase tracking-wide mb-2">Catatan Tambahan</label><textarea name="notes" rows="3" placeholder="Alergi, kondisi khusus, dll." class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20 resize-none"></textarea></div>
+            <button type="submit" id="submit-btn" class="w-full flex items-center justify-center gap-2 bg-[#c6f91f] text-black text-xs font-medium uppercase tracking-wide py-4 rounded-sm hover:bg-white transition-colors duration-300"><i data-lucide="send" class="w-4 h-4"></i> Kirim Booking</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA BANNER ==================== -->
+  <section class="py-24 sm:py-32 border-t border-white/5 relative overflow-hidden">
+    <div class="cta-gradient"></div>
+    <div class="max-w-4xl mx-auto px-6 text-center relative">
+      <div class="reveal-on-scroll">
+        <div class="w-16 h-16 mx-auto bg-[#c6f91f] rounded-full flex items-center justify-center mb-8"><i data-lucide="cat" class="w-8 h-8 text-black"></i></div>
+        <h2 class="section-title font-geist font-light text-3xl sm:text-4xl lg:text-5xl tracking-tighter leading-[1.1] mb-6">Kucing Anda layak mendapat <span class="text-[#c6f91f]">yang terbaik</span></h2>
+        <p class="text-lg font-light text-white/60 leading-relaxed mb-10 max-w-2xl mx-auto">Jangan tunda lagi. Berikan perawatan terbaik untuk sahabat kecil Anda hari ini. Konsultasi pertama gratis!</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#kontak" class="group inline-flex items-center gap-2.5 bg-[#c6f91f] text-black text-xs font-medium uppercase tracking-wide px-8 py-4 rounded-sm hover:bg-white transition-colors duration-300">Booking Sekarang — Gratis <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"></i></a>
+          <a href="https://wa.me/6282326821671" target="_blank" class="group inline-flex items-center gap-2.5 border border-white/20 text-white text-xs font-medium uppercase tracking-wide px-8 py-4 rounded-sm hover:bg-white/5 transition-colors duration-300"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Chat WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-white/5 py-16 bg-[#0B0F13]/50">
+    <div class="max-w-screen-2xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div>
+          <div class="flex items-center gap-2.5 mb-4"><div class="w-8 h-8 bg-[#c6f91f] rounded-sm flex items-center justify-center"><i data-lucide="cat" class="w-5 h-5 text-black"></i></div><span class="font-geist font-semibold text-lg tracking-tight">PawCare</span></div>
+          <p class="text-sm text-white/40 leading-relaxed mb-4">Jasa perawatan kucing profesional terpercaya di Jakarta. Karena mereka layak mendapat yang terbaik.</p>
+          <div class="flex items-center gap-2 text-xs text-white/30"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Jakarta Selatan, Indonesia</div>
+        </div>
+        <div>
+          <div class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Menu</div>
+          <ul class="space-y-3"><li><a href="#beranda" class="footer-link">Beranda</a></li><li><a href="#layanan" class="footer-link">Layanan</a></li><li><a href="#katalog" class="footer-link">Katalog</a></li><li><a href="#tentang" class="footer-link">Tentang</a></li><li><a href="#harga" class="footer-link">Harga</a></li></ul>
+        </div>
+        <div>
+          <div class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Layanan</div>
+          <ul class="space-y-3"><li><a href="#layanan" class="footer-link">Grooming</a></li><li><a href="#layanan" class="footer-link">Penitipan</a></li><li><a href="#layanan" class="footer-link">Cek Kesehatan</a></li><li><a href="#layanan" class="footer-link">Vaksinasi</a></li><li><a href="#layanan" class="footer-link">Spa & Relaksasi</a></li></ul>
+        </div>
+        <div>
+          <div class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Jam Buka</div>
+          <ul class="space-y-3">
+            <li class="flex justify-between text-sm"><span class="text-white/50">Sen - Jum</span><span class="text-white/70">08:00 - 21:00</span></li>
+            <li class="flex justify-between text-sm"><span class="text-white/50">Sabtu</span><span class="text-white/70">08:00 - 21:00</span></li>
+            <li class="flex justify-between text-sm"><span class="text-white/50">Minggu</span><span class="text-white/70">09:00 - 18:00</span></li>
+            <li class="flex justify-between text-sm pt-2 border-t border-white/5"><span class="text-[#c6f91f]">Emergency</span><span class="text-[#c6f91f]">24/7</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="text-xs text-white/30">© 2024 PawCare. All rights reserved.</div>
+        <div class="flex gap-6"><a href="#" class="text-xs text-white/30 hover:text-white/60 transition-colors">Privacy Policy</a><a href="#" class="text-xs text-white/30 hover:text-white/60 transition-colors">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i data-lucide="chevron-up" class="w-5 h-5"></i></button>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/6281234567890" target="_blank" class="wa-float">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="wa-tooltip">Chat Kami</span>
+  </a>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    lucide.createIcons();
+
+    // ===== KATALOG DATA =====
+    const catalogData = [
+      { name:'Persian', tag:'Bulu Panjang', img:'https://picsum.photos/seed/persian-cat-white/800/500.jpg', desc:'Persian adalah salah satu ras kucing paling populer di dunia. Dikenal dengan bulu panjang yang lembut dan halus, wajah pipih yang khas, serta mata besar yang ekspresif. Temperamen tenang, lembut, dan menyukai lingkungan damai.', weight:'3-7 kg', lifespan:'12-17 thn', coat:'Panjang', price:'Dari 150K', tips:'Persian membutuhkan grooming intensif minimal 2x seminggu untuk mencegah bulu kusut. Bersihkan mata setiap hari karena rentan epiphora. Perhatikan kesehatan ginjal dengan rutin cek darah.' },
+      { name:'Ragdoll', tag:'Bulu Panjang', img:'https://picsum.photos/seed/ragdoll-cat-blue/800/500.jpg', desc:'Ragdoll mendapat namanya karena kecenderungan "melimpah" saat dipeluk. Sangat penyayang, mengikuti pemilik ke mana-mana, dan dikenal sebagai "puppy cat" karena sifat setianya. Mata biru menawan menjadi ciri khas utama.', weight:'4-9 kg', lifespan:'12-17 thn', coat:'Semi-panjang', price:'Dari 180K', tips:'Bulu semi-panjang relatif mudah dirawat, cukup disikat 2-3x seminggu. Perhatikan asupan kalori agar tidak obesitas. Rentan HCM, lakukan echocardiography rutin.' },
+      { name:'British Shorthair', tag:'Bulu Pendek', img:'https://picsum.photos/seed/british-shorthair-grey/800/500.jpg', desc:'British Shorthair adalah ras yang teduh dan independen namun tetap penyayang. Bulunya yang tebal dan padat memberikan kesan "plush toy". Warna abu-abu (blue) paling terkenal, tersedia dalam berbagai warna.', weight:'4-8 kg', lifespan:'12-20 thn', coat:'Pendek & padat', price:'Dari 120K', tips:'Meski bulu pendek, perlu disikat 1x seminggu terutama saat musim rontok. Cenderung kurang aktif, pastikan cukup stimulasi bermain. Perhatikan kesehatan jantung dan ginjal.' },
+      { name:'Scottish Fold', tag:'Bulu Pendek', img:'https://picsum.photos/seed/scottish-fold-cat/800/500.jpg', desc:'Scottish Fold dikenal dengan telinga unik melipat ke depan, memberikan penampilan seperti burung hantu yang imut. Sangat manis, suka duduk dalam posisi "Buddha sit", dan senang bermain tanpa terlalu hiperaktif.', weight:'3-6 kg', lifespan:'11-15 thn', coat:'Pendek', price:'Dari 130K', tips:'Karena mutasi genetik pada telinga, rentan terhadap masalah tulang rawan dan arthritis. Jangan biarkan melompat dari ketinggian. Grooming cukup 1x seminggu. Periksa telinga rutin.' },
+      { name:'Maine Coon', tag:'Bulu Panjang', img:'https://picsum.photos/seed/maine-coon-large/800/500.jpg', desc:'Maine Coon adalah ras kucing terbesar yang didomestikasi, bisa mencapai 12 kg untuk jantan. Dikenal sebagai "gentle giant", bulu lebat tahan air, ekor besar, dan tutup telinga berbentuk lynx. Sangat cerdas.', weight:'5-12 kg', lifespan:'12-15 thn', coat:'Panjang & lebat', price:'Dari 200K', tips:'Butuh grooming rutin 2-3x seminggu karena bulu sangat lebat. Berikan makanan tinggi protein. Cek jantung rutin karena rentan HCM. Sediakan tempat tinggi untuk memanjat.' },
+      { name:'Siamese', tag:'Bulu Pendek', img:'https://picsum.photos/seed/siamese-cat-seal/800/500.jpg', desc:'Siamese adalah salah satu ras tertua dan paling dikenal. Bulu pendek berpola colorpoint, mata biru dramatis, dan sifat sangat vokal serta sosial. Siamese adalah kucing yang "bicara" banyak dan sangat bond dengan pemiliknya.', weight:'3-5 kg', lifespan:'15-20 thn', coat:'Pendek', price:'Dari 100K', tips:'Sangat sosial dan tidak suka ditinggal sendirian. Pertimbangkan memiliki kucing lain sebagai teman. Grooming sangat mudah, cukup lap dengan kain lembab. Perhatikan kesehatan gigi.' },
+      { name:'Bengal', tag:'Bulu Pendek', img:'https://picsum.photos/seed/bengal-cat-spots/800/500.jpg', desc:'Bengal adalah ras yang dipersilangkan dari kucing liar Asia dengan kucing domestik. Hasilnya adalah kucing berpola macan tutul atau marmer yang menakjubkan. Sangat energik, atletis, dan uniknya suka bermain air.', weight:'3-6 kg', lifespan:'12-16 thn', coat:'Pendek & bergaris', price:'Dari 160K', tips:'Butuh banyak aktivitas fisik dan mental. Sediakan puzzle feeder, tempat memanjat, dan mainan interaktif. Bulu mudah dirawat, cukup disikat 1x seminggu. Bisa dilatih tricks.' },
+      { name:'Kucing Domestik', tag:'Domestik', img:'https://picsum.photos/seed/domestic-cat-cute/800/500.jpg', desc:'Kucing domestik atau "kucing kampung" tidak memiliki ras tertentu. Jangan salah — kucing domestik biasanya lebih sehat, tahan penyakit, dan memiliki kepribadian unik. Mereka sama berharganya dengan ras manapun!', weight:'3-5 kg', lifespan:'12-18 thn', coat:'Bervariasi', price:'Dari 80K', tips:'Relatif mudah dirawat. Grooming sesuai panjang bulu. Yang terpenting: vaksinasi rutin (rabies, FVRCP), pemberian cacing 3 bulanan, makanan bergizi. Sterilisasi sangat direkomendasikan.' }
+    ];
+
+    // ===== NAVBAR =====
+    const navbar = document.getElementById('navbar'), btt = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      const s = window.scrollY;
+      navbar.classList.toggle('scrolled', s > 80);
+      btt.classList.toggle('visible', s > 600);
+      document.querySelectorAll('section[id]').forEach(sec => {
+        const l = document.querySelector(`.nav-link[href="#${sec.id}"]`);
+        if (l) l.classList.toggle('active', s >= sec.offsetTop - 120 && s < sec.offsetTop - 120 + sec.offsetHeight);
+      });
+    });
+
+    // ===== MOBILE MENU =====
+    let mo = false;
+    document.getElementById('mobile-toggle').addEventListener('click', () => {
+      mo = !mo; document.getElementById('mobile-menu').classList.toggle('hidden');
+      document.getElementById('menu-icon').setAttribute('data-lucide', mo ? 'x' : 'menu'); lucide.createIcons();
+    });
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.add('hidden'); mo = false;
+      document.getElementById('menu-icon').setAttribute('data-lucide', 'menu'); lucide.createIcons();
+    }));
+
+    // ===== SCROLL REVEAL =====
+    new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('revealed');obs.unobserve(x.target);} }), {threshold:0.1,rootMargin:'0px 0px -50px 0px'}).observe || document.querySelectorAll('.reveal-on-scroll').forEach(el => el);
+    const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('revealed');obs.unobserve(x.target);} }), {threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => obs.observe(el));
+
+    // ===== PRICING TOGGLE =====
+    function togglePricing(t) {
+      document.querySelectorAll('.price-monthly').forEach(e => e.classList.toggle('hidden', t==='yearly'));
+      document.querySelectorAll('.price-yearly').forEach(e => e.classList.toggle('hidden', t==='monthly'));
+      const a=document.getElementById('toggle-monthly'), b=document.getElementById('toggle-yearly');
+      a.classList.toggle('bg-[#c6f91f]', t==='monthly'); a.classList.toggle('text-black', t==='monthly'); a.classList.toggle('text-white/60', t!=='monthly');
+      b.classList.toggle('bg-[#c6f91f]', t==='yearly'); b.classList.toggle('text-black', t==='yearly'); b.classList.toggle('text-white/60', t!=='yearly');
+    }
+
+    // ===== GALLERY FILTER =====
+    function filterGallery(c) {
+      document.querySelectorAll('.gallery-filter').forEach(f => { f.classList.remove('bg-[#c6f91f]','text-black'); f.classList.add('border','border-white/10','text-white/60'); });
+      event.target.classList.add('bg-[#c6f91f]','text-black'); event.target.classList.remove('border','border-white/10','text-white/60');
+      document.querySelectorAll('#gallery-grid .gallery-item').forEach(i => {
+        if(c==='all'||i.dataset.category===c){i.style.display='';i.style.opacity='0';setTimeout(()=>{i.style.opacity='1';},50);}
+        else{i.style.opacity='0';setTimeout(()=>{i.style.display='none';},400);}
+      });
+    }
+
+    // ===== CATALOG FILTER =====
+    function filterCatalog(t) {
+      document.querySelectorAll('.catalog-filter').forEach(f => { f.classList.remove('bg-[#c6f91f]','text-black'); f.classList.add('border','border-white/10','text-white/60'); });
+      event.target.classList.add('bg-[#c6f91f]','text-black'); event.target.classList.remove('border','border-white/10','text-white/60');
+      document.querySelectorAll('#catalog-grid .catalog-card').forEach(c => {
+        if(t==='all'||c.dataset.type===t){c.style.display='';c.style.opacity='0';setTimeout(()=>{c.style.opacity='1';c.style.transition='opacity 0.4s ease';},50);}
+        else{c.style.opacity='0';setTimeout(()=>{c.style.display='none';},400);}
+      });
+    }
+
+    // ===== CATALOG MODAL =====
+    function openCatalogModal(i) {
+      const d=catalogData[i],m=document.getElementById('catalog-modal');
+      document.getElementById('modal-img').src=d.img;
+      document.getElementById('modal-tag').textContent=d.tag;
+      document.getElementById('modal-title').textContent=d.name;
+      document.getElementById('modal-desc').textContent=d.desc;
+      document.getElementById('modal-weight').textContent=d.weight;
+      document.getElementById('modal-lifespan').textContent=d.lifespan;
+      document.getElementById('modal-coat').textContent=d.coat;
+      document.getElementById('modal-price').textContent=d.price;
+      document.getElementById('modal-tips-text').textContent=d.tips;
+      m.classList.add('active'); document.body.style.overflow='hidden'; lucide.createIcons();
+    }
+    function closeCatalogModal() { document.getElementById('catalog-modal').classList.remove('active'); document.body.style.overflow=''; }
+    document.getElementById('catalog-modal').addEventListener('click', e => { if(e.target===document.getElementById('catalog-modal')) closeCatalogModal(); });
+
+    // ===== LIGHTBOX =====
+    function openLightbox(el) { document.getElementById('lightbox-img').src=el.querySelector('img').src; document.getElementById('lightbox').classList.add('active'); document.body.style.overflow='hidden'; }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow=''; }
+    document.addEventListener('keydown', e => { if(e.key==='Escape'){closeLightbox();closeCatalogModal();} });
+
+    // ===== FAQ =====
+    function toggleFaq(btn) {
+      const c=btn.parentElement.querySelector('.faq-content'), ic=btn.querySelector('.faq-icon'), open=c.style.maxHeight&&c.style.maxHeight!=='0px';
+      document.querySelectorAll('.faq-content').forEach(x=>{x.style.maxHeight='0px';});
+      document.querySelectorAll('.faq-icon').forEach(x=>{x.style.transform='rotate(0deg)';});
+      if(!open){c.style.maxHeight=c.scrollHeight+'px';ic.style.transform='rotate(45deg)';}
+    }
+
+    // ===== TOAST =====
+    function showToast(msg,type='success') {
+      const c=document.getElementById('toast-container'),t=document.createElement('div');
+      t.className=`toast-enter flex items-center gap-3 px-5 py-4 rounded-xl bg-[#0E1216] border ${type==='success'?'border-[#c6f91f]/30':'border-red-500/30'} shadow-2xl max-w-sm`;
+      t.innerHTML=`<i data-lucide="${type==='success'?'check-circle':'alert-circle'}" class="w-5 h-5 ${type==='success'?'text-[#c6f91f]':'text-red-400'} flex-shrink-0"></i><span class="text-sm text-white/80">${msg}</span>`;
+      c.appendChild(t); lucide.createIcons();
+      setTimeout(()=>{t.classList.replace('toast-enter','toast-exit');setTimeout(()=>t.remove(),300);},4000);
+    }
+
+    // ===== BOOKING =====
+    function handleBooking(e) {
+      e.preventDefault(); const f=e.target, btn=document.getElementById('submit-btn'), d=new FormData(f);
+      if(!d.get('name')||!d.get('phone')||!d.get('catname')||!d.get('breed')||!d.get('service')||!d.get('date')){showToast('Harap isi semua field yang wajib (*)','error');return;}
+      btn.disabled=true; btn.innerHTML='<svg class="animate-spin w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Memproses...';
+      setTimeout(()=>{showToast(`Booking berhasil! Kami akan menghubungi ${d.get('name')} via WhatsApp.`);f.reset();btn.disabled=false;btn.innerHTML='<i data-lucide="send" class="w-4 h-4"></i> Kirim Booking';lucide.createIcons();},2000);
+    }
+
+    // ===== SELECT PLAN =====
+    function selectPlan(p) { showToast(`Paket ${p} dipilih! Silakan isi form booking di bawah.`); document.getElementById('kontak').scrollIntoView({behavior:'smooth'}); }
+
+    // ===== MIN DATE =====
+    const di=document.querySelector('input[type="date"]'); if(di) di.setAttribute('min',new Date().toISOString().split('T')[0]);
+  </script>
+</body>
+</html>

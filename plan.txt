@@ -1,0 +1,32 @@
+pawcare/
+├── index.html
+├── style.css
+├── assets/
+│   ├── img/
+│   │   ├── hero.jpg
+│   │   ├── about-1.jpg
+│   │   ├── about-2.jpg
+│   │   ├── about-3.jpg
+│   │   ├── about-4.jpg
+│   │   ├── gallery/
+│   │   │   ├── groom-lux.jpg
+│   │   │   ├── suite-premium.jpg
+│   │   │   ├── playtime-fun.jpg
+│   │   │   ├── nail-care.jpg
+│   │   │   ├── cozy-sleep.jpg
+│   │   │   ├── toy-time.jpg
+│   │   │   └── fur-brush.jpg
+│   │   ├── testimonial/
+│   │   │   ├── sarah.jpg
+│   │   │   ├── budi.jpg
+│   │   │   └── maya.jpg
+│   │   └── catalog/
+│   │       ├── persian.jpg
+│   │       ├── ragdoll.jpg
+│   │       ├── british-shorthair.jpg
+│   │       ├── scottish-fold.jpg
+│   │       ├── maine-coon.jpg
+│   │       ├── siamese.jpg
+│   │       ├── bengal.jpg
+│   │       └── domestik.jpg
+│   └── favicon.svg
